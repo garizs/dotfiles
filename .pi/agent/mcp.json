@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "toolPrefix": "server",
+    "idleTimeout": 10
+  },
+  "mcpServers": {
+    "grepai": {
+      "command": "grepai",
+      "args": [
+        "mcp-serve"
+      ],
+      "lifecycle": "lazy",
+      "directTools": true
+    }
+  }
+}

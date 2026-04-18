@@ -1,0 +1,54 @@
+{
+  "lastChangelogVersion": "0.67.68",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4",
+  "defaultThinkingLevel": "high",
+  "compaction": {
+    "enabled": true,
+    "reserveTokens": 50000,
+    "keepRecentTokens": 20000
+  },
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-mcp-adapter",
+    "npm:pi-rewind",
+    "npm:@aliou/pi-processes",
+    "npm:pi-secret-guard",
+    "npm:pi-subagents",
+    "npm:pi-boundary",
+    "npm:@samfp/pi-steering-hooks",
+    "npm:pi-mdc-rules",
+    "npm:@e9n/pi-github",
+    "npm:pi-tool-display",
+    "git:github.com/garizs/pi-multicodex",
+    "npm:pi-powerline-footer",
+    {
+      "source": "git:github.com/tmustier/pi-extensions",
+      "extensions": [
+        "files-widget/index.ts",
+        "raw-paste/index.ts",
+        "code-actions/index.ts",
+        "tab-status/tab-status.ts"
+      ],
+      "skills": [],
+      "prompts": [],
+      "themes": []
+    },
+    {
+      "source": "git:github.com/mitsuhiko/agent-stuff",
+      "extensions": [
+        "extensions/btw.ts",
+        "extensions/context.ts",
+        "extensions/todos.ts"
+      ],
+      "skills": [],
+      "prompts": [],
+      "themes": []
+    },
+    "npm:pi-interview",
+    "npm:glimpseui",
+    "npm:@siddr/pi-cmux-status",
+    "npm:pi-permission-system"
+  ],
+  "theme": "darcula"
+}

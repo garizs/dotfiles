@@ -1,0 +1,76 @@
+{
+  "rules": [
+    {
+      "name": "no-shell-file-utilities",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "(^\\s*|(?:&&|\\|\\||;|\\|)\\s*)(cat|tee|dd|install|touch|truncate)(?=\\s|$)",
+      "reason": "Do not use bash as a file read/write channel. Use read/edit/write tools instead.",
+      "noOverride": true
+    },
+    {
+      "name": "no-inline-script-exec",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "\\b(python|python3|node|perl|ruby|php|lua)\\b\\s+(-c|-e|-p|-r|--eval|--print|--command)\\b",
+      "reason": "Inline script execution via shell is blocked. Use proper tools or checked-in project commands.",
+      "noOverride": true
+    },
+    {
+      "name": "no-shell-network-fetch",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "(^|\\s)(curl|wget|scp|rsync|ssh)(\\s|$)",
+      "reason": "Network/file transfer commands via bash are blocked. Use dedicated tools instead.",
+      "noOverride": true
+    },
+    {
+      "name": "no-shell-command-substitution",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "`|\\$\\(",
+      "reason": "Command substitution in bash is blocked.",
+      "noOverride": true
+    },
+    {
+      "name": "no-shell-variable-expansion",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "\\$(?:\\{|[A-Za-z_][A-Za-z0-9_]*|[0-9]+|[@*#?$!-])",
+      "reason": "Shell variable expansion/interpolation is blocked.",
+      "noOverride": true
+    },
+    {
+      "name": "no-shell-redirection",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "(>>|<<|<<<|[0-9]?>|[0-9]?<|&>|&>>)",
+      "reason": "Shell redirection/heredoc syntax is blocked.",
+      "noOverride": true
+    },
+    {
+      "name": "no-nested-shells-or-wrappers",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "(^|\\s)(bash\\s+-c|sh\\s+-c|zsh\\s+-c|eval|exec|nohup|timeout)(\\s|$)",
+      "reason": "Nested shells and shell wrapper commands are blocked.",
+      "noOverride": true
+    },
+    {
+      "name": "no-rg-outside-workspace",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "\\brg\\b.*(?:\\s/|\\s~|\\s\\.\\./)",
+      "reason": "Search via bash must stay inside the current workspace.",
+      "noOverride": true
+    },
+    {
+      "name": "no-dangerous-git",
+      "tool": "bash",
+      "field": "command",
+      "pattern": "\\bgit\\s+(push\\s+--force|push\\s+-f|reset\\s+--hard|clean\\b|checkout\\s+--|restore\\b.*--source)\\b",
+      "reason": "Dangerous git operations are blocked.",
+      "noOverride": true
+    }
+  ]
+}

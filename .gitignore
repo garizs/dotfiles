@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Pi secrets / machine-local state
+.pi/interview-sessions.json
+.pi/agent/auth.json
+.pi/agent/codex-accounts.json
+.pi/agent/mcp-cache.json
+.pi/agent/mcp-npx-cache.json
+.pi/agent/sessions/
+.pi/agent/git/
+.pi/agent/skills/
+
+# Local-only extensions intentionally excluded from sync
+.pi/agent/extensions/pi-cmux-bridge/
+.pi/agent/extensions/pi-cmux-wait-bridge/
+
+# Generic temp/editor junk
+*.log
+*.swp
+*.swo

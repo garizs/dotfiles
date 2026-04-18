@@ -1,0 +1,94 @@
+{
+  "$schema": "https://pi-coding-agent.local/schemas/permissions.schema.json",
+  "defaultPolicy": {
+    "tools": "allow",
+    "bash": "ask",
+    "mcp": "allow",
+    "skills": "allow",
+    "special": "ask"
+  },
+  "tools": {
+    "bash": "ask",
+    "read": "allow",
+    "write": "allow",
+    "edit": "allow",
+    "grep": "allow",
+    "find": "allow",
+    "ls": "allow",
+    "mcp": "allow",
+    "task": "allow"
+  },
+  "bash": {
+    "*$(*": "deny",
+    "*`*": "deny",
+    "*$*": "deny",
+    "*>*": "deny",
+    "*<*": "deny",
+
+    "bash -c*": "deny",
+    "sh -c*": "deny",
+    "zsh -c*": "deny",
+    "eval*": "deny",
+    "exec*": "deny",
+    "nohup*": "deny",
+    "timeout*": "deny",
+
+    "cat*": "deny",
+    "tee*": "deny",
+    "dd*": "deny",
+    "mkdir *": "ask",
+    "cp *": "ask",
+    "mv *": "ask",
+    "install *": "deny",
+    "touch *": "deny",
+    "truncate*": "deny",
+    "sed -i*": "deny",
+    "sed --in-place*": "deny",
+
+    "curl*": "deny",
+    "wget*": "deny",
+    "scp*": "deny",
+    "rsync*": "deny",
+    "ssh*": "deny",
+
+    "python -c*": "deny",
+    "python3 -c*": "deny",
+    "node -e*": "deny",
+    "node --eval*": "deny",
+    "perl -e*": "deny",
+    "ruby -e*": "deny",
+    "php -r*": "deny",
+    "lua -e*": "deny",
+
+    "git push --force*": "deny",
+    "git push -f*": "deny",
+    "git reset --hard*": "deny",
+    "git clean*": "deny",
+    "git checkout --*": "deny",
+    "git restore*--source*": "deny",
+
+    "git *": "ask",
+    "git status": "allow",
+    "git status *": "allow",
+    "git diff": "allow",
+    "git diff *": "allow",
+    "git log": "allow",
+    "git log *": "allow",
+    "git branch --show-current": "allow",
+    "git rev-parse --show-toplevel": "allow",
+    "rg": "allow",
+    "rg *": "allow",
+
+    "gh pr create*": "ask",
+    "gh pr merge*": "ask",
+    "gh issue create*": "ask",
+    "gh workflow run*": "ask"
+  },
+  "mcp": {
+    "*": "allow"
+  },
+  "special": {
+    "external_directory": "ask",
+    "doom_loop": "deny"
+  }
+}
